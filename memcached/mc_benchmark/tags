@@ -1,0 +1,370 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+AE_ALL_EVENTS	ae.h	47;"	d
+AE_DONT_WAIT	ae.h	48;"	d
+AE_ERR	ae.h	39;"	d
+AE_FILE_EVENTS	ae.h	45;"	d
+AE_NOMORE	ae.h	50;"	d
+AE_NONE	ae.h	41;"	d
+AE_NOTUSED	ae.h	53;"	d
+AE_OK	ae.h	38;"	d
+AE_READABLE	ae.h	42;"	d
+AE_SETSIZE	ae.h	36;"	d
+AE_TIME_EVENTS	ae.h	46;"	d
+AE_WRITABLE	ae.h	43;"	d
+AL_START_HEAD	adlist.h	89;"	d
+AL_START_TAIL	adlist.h	90;"	d
+ANET_CONNECT_NONBLOCK	anet.c	127;"	d	file:
+ANET_CONNECT_NONE	anet.c	126;"	d	file:
+ANET_ERR	anet.h	35;"	d
+ANET_ERR_LEN	anet.h	36;"	d
+ANET_H	anet.h	32;"	d
+ANET_OK	anet.h	34;"	d
+BENCHOBJ	Makefile	/^BENCHOBJ = ae.o anet.o mc-benchmark.o sds.o adlist.o zmalloc.o$/;"	m
+BENCHPRGNAME	Makefile	/^BENCHPRGNAME = mc-benchmark$/;"	m
+CCLINK	Makefile	/^  CCLINK?= -ldl -lnsl -lsocket -lm$/;"	m
+CCLINK	Makefile	/^  CCLINK?= -lm$/;"	m
+CCOPT	Makefile	/^CCOPT= $(CFLAGS) $(CCLINK) $(ARCH) $(PROF)$/;"	m
+CFLAGS	Makefile	/^  CFLAGS?= -std=c99 -pedantic $(OPTIMIZATION) -Wall -W $(ARCH) $(PROF)$/;"	m
+CFLAGS	Makefile	/^  CFLAGS?= -std=c99 -pedantic $(OPTIMIZATION) -Wall -W -D__EXTENSIONS__ -D_XPG6$/;"	m
+CLIENT_CONNECTING	mc-benchmark.c	51;"	d	file:
+CLIENT_READREPLY	mc-benchmark.c	53;"	d	file:
+CLIENT_SENDQUERY	mc-benchmark.c	52;"	d	file:
+DEBUG	Makefile	/^DEBUG?= -g -rdynamic -ggdb $/;"	m
+HAVE_BACKTRACE	config.h	36;"	d
+HAVE_EPOLL	config.h	41;"	d
+HAVE_KQUEUE	config.h	45;"	d
+HAVE_MALLOC_SIZE	config.h	11;"	d
+HAVE_PROCFS	config.h	26;"	d
+HAVE_TASKINFO	config.h	31;"	d
+INSTALL	Makefile	/^INSTALL= cp -p$/;"	m
+INSTALL_BIN	Makefile	/^INSTALL_BIN= $(PREFIX)\/bin$/;"	m
+MAX_LATENCY	mc-benchmark.c	55;"	d	file:
+MCB_NOTUSED	mc-benchmark.c	57;"	d	file:
+OPTIMIZATION	Makefile	/^OPTIMIZATION?=-O2$/;"	m
+PREFIX	Makefile	/^PREFIX= \/usr\/local$/;"	m
+PREFIX_SIZE	zmalloc.c	39;"	d	file:
+PREFIX_SIZE	zmalloc.c	41;"	d	file:
+REPLY_BULK	mc-benchmark.c	49;"	d	file:
+REPLY_RETCODE	mc-benchmark.c	48;"	d	file:
+R_Nan	redis.c	/^double R_Zero, R_PosInf, R_NegInf, R_Nan;$/;"	v
+R_NegInf	redis.c	/^double R_Zero, R_PosInf, R_NegInf, R_Nan;$/;"	v
+R_PosInf	redis.c	/^double R_Zero, R_PosInf, R_NegInf, R_Nan;$/;"	v
+R_Zero	redis.c	/^double R_Zero, R_PosInf, R_NegInf, R_Nan;$/;"	v
+SDS_ABORT_ON_OOM	sds.c	31;"	d	file:
+_BSD_SOURCE	fmacros.h	4;"	d
+_FILE_OFFSET_BITS	fmacros.h	13;"	d
+_LARGEFILE_SOURCE	fmacros.h	12;"	d
+_REDIS_FMACRO_H	fmacros.h	2;"	d
+_XOPEN_SOURCE	fmacros.h	7;"	d
+_XOPEN_SOURCE	fmacros.h	9;"	d
+_ZMALLOC_H	zmalloc.h	32;"	d
+__ADLIST_H__	adlist.h	32;"	d
+__AE_H__	ae.h	34;"	d
+__CONFIG_H	config.h	2;"	d
+__SDS_H	sds.h	32;"	d
+_client	mc-benchmark.c	/^typedef struct _client {$/;"	s	file:
+_rfds	ae_select.c	/^    fd_set _rfds, _wfds;$/;"	m	struct:aeApiState	file:
+_wfds	ae_select.c	/^    fd_set _rfds, _wfds;$/;"	m	struct:aeApiState	file:
+activeExpireCycle	redis.c	/^void activeExpireCycle(void) {$/;"	f
+aeAddMillisecondsToNow	ae.c	/^static void aeAddMillisecondsToNow(long long milliseconds, long *sec, long *ms) {$/;"	f	file:
+aeApiAddEvent	ae_epoll.c	/^static int aeApiAddEvent(aeEventLoop *eventLoop, int fd, int mask) {$/;"	f	file:
+aeApiAddEvent	ae_kqueue.c	/^static int aeApiAddEvent(aeEventLoop *eventLoop, int fd, int mask) {$/;"	f	file:
+aeApiAddEvent	ae_select.c	/^static int aeApiAddEvent(aeEventLoop *eventLoop, int fd, int mask) {$/;"	f	file:
+aeApiCreate	ae_epoll.c	/^static int aeApiCreate(aeEventLoop *eventLoop) {$/;"	f	file:
+aeApiCreate	ae_kqueue.c	/^static int aeApiCreate(aeEventLoop *eventLoop) {$/;"	f	file:
+aeApiCreate	ae_select.c	/^static int aeApiCreate(aeEventLoop *eventLoop) {$/;"	f	file:
+aeApiDelEvent	ae_epoll.c	/^static void aeApiDelEvent(aeEventLoop *eventLoop, int fd, int delmask) {$/;"	f	file:
+aeApiDelEvent	ae_kqueue.c	/^static void aeApiDelEvent(aeEventLoop *eventLoop, int fd, int mask) {$/;"	f	file:
+aeApiDelEvent	ae_select.c	/^static void aeApiDelEvent(aeEventLoop *eventLoop, int fd, int mask) {$/;"	f	file:
+aeApiFree	ae_epoll.c	/^static void aeApiFree(aeEventLoop *eventLoop) {$/;"	f	file:
+aeApiFree	ae_kqueue.c	/^static void aeApiFree(aeEventLoop *eventLoop) {$/;"	f	file:
+aeApiFree	ae_select.c	/^static void aeApiFree(aeEventLoop *eventLoop) {$/;"	f	file:
+aeApiName	ae_epoll.c	/^static char *aeApiName(void) {$/;"	f	file:
+aeApiName	ae_kqueue.c	/^static char *aeApiName(void) {$/;"	f	file:
+aeApiName	ae_select.c	/^static char *aeApiName(void) {$/;"	f	file:
+aeApiPoll	ae_epoll.c	/^static int aeApiPoll(aeEventLoop *eventLoop, struct timeval *tvp) {$/;"	f	file:
+aeApiPoll	ae_kqueue.c	/^static int aeApiPoll(aeEventLoop *eventLoop, struct timeval *tvp) {$/;"	f	file:
+aeApiPoll	ae_select.c	/^static int aeApiPoll(aeEventLoop *eventLoop, struct timeval *tvp) {$/;"	f	file:
+aeApiState	ae_epoll.c	/^typedef struct aeApiState {$/;"	s	file:
+aeApiState	ae_epoll.c	/^} aeApiState;$/;"	t	typeref:struct:aeApiState	file:
+aeApiState	ae_kqueue.c	/^typedef struct aeApiState {$/;"	s	file:
+aeApiState	ae_kqueue.c	/^} aeApiState;$/;"	t	typeref:struct:aeApiState	file:
+aeApiState	ae_select.c	/^typedef struct aeApiState {$/;"	s	file:
+aeApiState	ae_select.c	/^} aeApiState;$/;"	t	typeref:struct:aeApiState	file:
+aeBeforeSleepProc	ae.h	/^typedef void aeBeforeSleepProc(struct aeEventLoop *eventLoop);$/;"	t
+aeCreateEventLoop	ae.c	/^aeEventLoop *aeCreateEventLoop(void) {$/;"	f
+aeCreateFileEvent	ae.c	/^int aeCreateFileEvent(aeEventLoop *eventLoop, int fd, int mask,$/;"	f
+aeCreateTimeEvent	ae.c	/^long long aeCreateTimeEvent(aeEventLoop *eventLoop, long long milliseconds,$/;"	f
+aeDeleteEventLoop	ae.c	/^void aeDeleteEventLoop(aeEventLoop *eventLoop) {$/;"	f
+aeDeleteFileEvent	ae.c	/^void aeDeleteFileEvent(aeEventLoop *eventLoop, int fd, int mask)$/;"	f
+aeDeleteTimeEvent	ae.c	/^int aeDeleteTimeEvent(aeEventLoop *eventLoop, long long id)$/;"	f
+aeEventFinalizerProc	ae.h	/^typedef void aeEventFinalizerProc(struct aeEventLoop *eventLoop, void *clientData);$/;"	t
+aeEventLoop	ae.h	/^typedef struct aeEventLoop {$/;"	s
+aeEventLoop	ae.h	/^} aeEventLoop;$/;"	t	typeref:struct:aeEventLoop
+aeFileEvent	ae.h	/^typedef struct aeFileEvent {$/;"	s
+aeFileEvent	ae.h	/^} aeFileEvent;$/;"	t	typeref:struct:aeFileEvent
+aeFileProc	ae.h	/^typedef void aeFileProc(struct aeEventLoop *eventLoop, int fd, void *clientData, int mask);$/;"	t
+aeFiredEvent	ae.h	/^typedef struct aeFiredEvent {$/;"	s
+aeFiredEvent	ae.h	/^} aeFiredEvent;$/;"	t	typeref:struct:aeFiredEvent
+aeGetApiName	ae.c	/^char *aeGetApiName(void) {$/;"	f
+aeGetTime	ae.c	/^static void aeGetTime(long *seconds, long *milliseconds)$/;"	f	file:
+aeMain	ae.c	/^void aeMain(aeEventLoop *eventLoop) {$/;"	f
+aeProcessEvents	ae.c	/^int aeProcessEvents(aeEventLoop *eventLoop, int flags)$/;"	f
+aeSearchNearestTimer	ae.c	/^static aeTimeEvent *aeSearchNearestTimer(aeEventLoop *eventLoop)$/;"	f	file:
+aeSetBeforeSleepProc	ae.c	/^void aeSetBeforeSleepProc(aeEventLoop *eventLoop, aeBeforeSleepProc *beforesleep) {$/;"	f
+aeStop	ae.c	/^void aeStop(aeEventLoop *eventLoop) {$/;"	f
+aeTimeEvent	ae.h	/^typedef struct aeTimeEvent {$/;"	s
+aeTimeEvent	ae.h	/^} aeTimeEvent;$/;"	t	typeref:struct:aeTimeEvent
+aeTimeProc	ae.h	/^typedef int aeTimeProc(struct aeEventLoop *eventLoop, long long id, void *clientData);$/;"	t
+aeWait	ae.c	/^int aeWait(int fd, int mask, long long milliseconds) {$/;"	f
+anetAccept	anet.c	/^int anetAccept(char *err, int serversock, char *ip, int *port)$/;"	f
+anetNonBlock	anet.c	/^int anetNonBlock(char *err, int fd)$/;"	f
+anetRead	anet.c	/^int anetRead(int fd, char *buf, int count)$/;"	f
+anetResolve	anet.c	/^int anetResolve(char *err, char *host, char *ipbuf)$/;"	f
+anetSetError	anet.c	/^static void anetSetError(char *err, const char *fmt, ...)$/;"	f	file:
+anetSetSendBuffer	anet.c	/^int anetSetSendBuffer(char *err, int fd, int buffsize)$/;"	f
+anetTcpConnect	anet.c	/^int anetTcpConnect(char *err, char *addr, int port)$/;"	f
+anetTcpGenericConnect	anet.c	/^static int anetTcpGenericConnect(char *err, char *addr, int port, int flags)$/;"	f	file:
+anetTcpKeepAlive	anet.c	/^int anetTcpKeepAlive(char *err, int fd)$/;"	f
+anetTcpNoDelay	anet.c	/^int anetTcpNoDelay(char *err, int fd)$/;"	f
+anetTcpNonBlockConnect	anet.c	/^int anetTcpNonBlockConnect(char *err, char *addr, int port)$/;"	f
+anetTcpServer	anet.c	/^int anetTcpServer(char *err, int port, char *bindaddr)$/;"	f
+anetWrite	anet.c	/^int anetWrite(int fd, char *buf, int count)$/;"	f
+aof_fsync	config.h	50;"	d
+aof_fsync	config.h	52;"	d
+apidata	ae.h	/^    void *apidata; \/* This is used for polling API specific data *\/$/;"	m	struct:aeEventLoop
+authCommand	redis.c	/^void authCommand(redisClient *c) {$/;"	f
+beforeSleep	redis.c	/^void beforeSleep(struct aeEventLoop *eventLoop) {$/;"	f
+beforesleep	ae.h	/^    aeBeforeSleepProc *beforesleep;$/;"	m	struct:aeEventLoop
+buf	sds.h	/^    char buf[];$/;"	m	struct:sdshdr
+bytesToHuman	redis.c	/^void bytesToHuman(char *s, unsigned long long n) {$/;"	f
+call	redis.c	/^void call(redisClient *c, struct redisCommand *cmd) {$/;"	f
+client	mc-benchmark.c	/^} *client;$/;"	t	typeref:struct:_client	file:
+clientData	ae.h	/^    void *clientData;$/;"	m	struct:aeFileEvent
+clientData	ae.h	/^    void *clientData;$/;"	m	struct:aeTimeEvent
+clientDone	mc-benchmark.c	/^static void clientDone(client c) {$/;"	f	file:
+clients	mc-benchmark.c	/^    list *clients;$/;"	m	struct:config	file:
+commandTable	redis.c	/^struct redisCommand *commandTable;$/;"	v	typeref:struct:redisCommand
+config	mc-benchmark.c	/^static struct config {$/;"	s	file:
+config	mc-benchmark.c	/^} config;$/;"	v	typeref:struct:config	file:
+createClient	mc-benchmark.c	/^static client createClient(void) {$/;"	f	file:
+createMissingClients	mc-benchmark.c	/^static void createMissingClients(client c) {$/;"	f	file:
+createPidFile	redis.c	/^void createPidFile(void) {$/;"	f
+createSharedObjects	redis.c	/^void createSharedObjects(void) {$/;"	f
+daemonize	redis.c	/^void daemonize(void) {$/;"	f
+datasize	mc-benchmark.c	/^    int datasize;$/;"	m	struct:config	file:
+dbDictType	redis.c	/^dictType dbDictType = {$/;"	v
+debug	mc-benchmark.c	/^    int debug;$/;"	m	struct:config	file:
+decrement_used_memory	zmalloc.c	56;"	d	file:
+dictEncObjHash	redis.c	/^unsigned int dictEncObjHash(const void *key) {$/;"	f
+dictEncObjKeyCompare	redis.c	/^int dictEncObjKeyCompare(void *privdata, const void *key1,$/;"	f
+dictListDestructor	redis.c	/^void dictListDestructor(void *privdata, void *val)$/;"	f
+dictObjHash	redis.c	/^unsigned int dictObjHash(const void *key) {$/;"	f
+dictObjKeyCompare	redis.c	/^int dictObjKeyCompare(void *privdata, const void *key1,$/;"	f
+dictRedisObjectDestructor	redis.c	/^void dictRedisObjectDestructor(void *privdata, void *val)$/;"	f
+dictSdsDestructor	redis.c	/^void dictSdsDestructor(void *privdata, void *val)$/;"	f
+dictSdsHash	redis.c	/^unsigned int dictSdsHash(const void *key) {$/;"	f
+dictSdsKeyCompare	redis.c	/^int dictSdsKeyCompare(void *privdata, const void *key1,$/;"	f
+dictVanillaFree	redis.c	/^void dictVanillaFree(void *privdata, void *val)$/;"	f
+direction	adlist.h	/^    int direction;$/;"	m	struct:listIter
+donerequests	mc-benchmark.c	/^    int donerequests;$/;"	m	struct:config	file:
+dup	adlist.h	/^    void *(*dup)(void *ptr);$/;"	m	struct:list
+echoCommand	redis.c	/^void echoCommand(redisClient *c) {$/;"	f
+el	mc-benchmark.c	/^    aeEventLoop *el;$/;"	m	struct:config	file:
+endBenchmark	mc-benchmark.c	/^static void endBenchmark(void) {$/;"	f	file:
+epfd	ae_epoll.c	/^    int epfd;$/;"	m	struct:aeApiState	file:
+events	ae.h	/^    aeFileEvent events[AE_SETSIZE]; \/* Registered events *\/$/;"	m	struct:aeEventLoop
+events	ae_epoll.c	/^    struct epoll_event events[AE_SETSIZE];$/;"	m	struct:aeApiState	typeref:struct:aeApiState::epoll_event	file:
+events	ae_kqueue.c	/^    struct kevent events[AE_SETSIZE];$/;"	m	struct:aeApiState	typeref:struct:aeApiState::kevent	file:
+fd	ae.h	/^    int fd;$/;"	m	struct:aeFiredEvent
+fd	mc-benchmark.c	/^    int fd;$/;"	m	struct:_client	file:
+finalizerProc	ae.h	/^    aeEventFinalizerProc *finalizerProc;$/;"	m	struct:aeTimeEvent
+fired	ae.h	/^    aeFiredEvent fired[AE_SETSIZE]; \/* Fired events *\/$/;"	m	struct:aeEventLoop
+free	adlist.h	/^    void (*free)(void *ptr);$/;"	m	struct:list
+free	sds.h	/^    int free;$/;"	m	struct:sdshdr
+freeAllClients	mc-benchmark.c	/^static void freeAllClients(void) {$/;"	f	file:
+freeClient	mc-benchmark.c	/^static void freeClient(client c) {$/;"	f	file:
+freeMemoryIfNeeded	redis.c	/^void freeMemoryIfNeeded(void) {$/;"	f
+genRedisInfoString	redis.c	/^sds genRedisInfoString(void) {$/;"	f
+getMcontextEip	redis.c	/^void *getMcontextEip(ucontext_t *uc) {$/;"	f
+hashDictType	redis.c	/^dictType hashDictType = {$/;"	v
+head	adlist.h	/^    listNode *head;$/;"	m	struct:list
+hostip	mc-benchmark.c	/^    char *hostip;$/;"	m	struct:config	file:
+hostport	mc-benchmark.c	/^    int hostport;$/;"	m	struct:config	file:
+htNeedsResize	redis.c	/^int htNeedsResize(dict *dict) {$/;"	f
+ibuf	mc-benchmark.c	/^    sds ibuf;$/;"	m	struct:_client	file:
+id	ae.h	/^    long long id; \/* time event identifier. *\/$/;"	m	struct:aeTimeEvent
+idlemode	mc-benchmark.c	/^    int idlemode;$/;"	m	struct:config	file:
+increment_used_memory	zmalloc.c	44;"	d	file:
+incrementallyRehash	redis.c	/^void incrementallyRehash(void) {$/;"	f
+infoCommand	redis.c	/^void infoCommand(redisClient *c) {$/;"	f
+initServer	redis.c	/^void initServer() {$/;"	f
+initServerConfig	redis.c	/^void initServerConfig() {$/;"	f
+keepalive	mc-benchmark.c	/^    int keepalive;$/;"	m	struct:config	file:
+keylistDictType	redis.c	/^dictType keylistDictType = {$/;"	v
+keyptrDictType	redis.c	/^dictType keyptrDictType = {$/;"	v
+keysize	mc-benchmark.c	/^    int keysize;$/;"	m	struct:config	file:
+kqfd	ae_kqueue.c	/^    int kqfd;$/;"	m	struct:aeApiState	file:
+latency	mc-benchmark.c	/^    int *latency;$/;"	m	struct:config	file:
+len	adlist.h	/^    unsigned int len;$/;"	m	struct:list
+len	sds.h	/^    int len;$/;"	m	struct:sdshdr
+linuxOvercommitMemoryValue	redis.c	/^int linuxOvercommitMemoryValue(void) {$/;"	f
+linuxOvercommitMemoryWarning	redis.c	/^void linuxOvercommitMemoryWarning(void) {$/;"	f
+list	adlist.h	/^typedef struct list {$/;"	s
+list	adlist.h	/^} list;$/;"	t	typeref:struct:list
+listAddNodeHead	adlist.c	/^list *listAddNodeHead(list *list, void *value)$/;"	f
+listAddNodeTail	adlist.c	/^list *listAddNodeTail(list *list, void *value)$/;"	f
+listCreate	adlist.c	/^list *listCreate(void)$/;"	f
+listDelNode	adlist.c	/^void listDelNode(list *list, listNode *node)$/;"	f
+listDup	adlist.c	/^list *listDup(list *orig)$/;"	f
+listFirst	adlist.h	58;"	d
+listGetDupMethod	adlist.h	68;"	d
+listGetFree	adlist.h	69;"	d
+listGetIterator	adlist.c	/^listIter *listGetIterator(list *list, int direction)$/;"	f
+listGetMatchMethod	adlist.h	70;"	d
+listIndex	adlist.c	/^listNode *listIndex(list *list, int index) {$/;"	f
+listInsertNode	adlist.c	/^list *listInsertNode(list *list, listNode *old_node, void *value, int after) {$/;"	f
+listIter	adlist.h	/^typedef struct listIter {$/;"	s
+listIter	adlist.h	/^} listIter;$/;"	t	typeref:struct:listIter
+listLast	adlist.h	59;"	d
+listLength	adlist.h	57;"	d
+listNext	adlist.c	/^listNode *listNext(listIter *iter)$/;"	f
+listNextNode	adlist.h	61;"	d
+listNode	adlist.h	/^typedef struct listNode {$/;"	s
+listNode	adlist.h	/^} listNode;$/;"	t	typeref:struct:listNode
+listNodeValue	adlist.h	62;"	d
+listPrevNode	adlist.h	60;"	d
+listRelease	adlist.c	/^void listRelease(list *list)$/;"	f
+listReleaseIterator	adlist.c	/^void listReleaseIterator(listIter *iter) {$/;"	f
+listRewind	adlist.c	/^void listRewind(list *list, listIter *li) {$/;"	f
+listRewindTail	adlist.c	/^void listRewindTail(list *list, listIter *li) {$/;"	f
+listSearchKey	adlist.c	/^listNode *listSearchKey(list *list, void *key)$/;"	f
+listSetDupMethod	adlist.h	64;"	d
+listSetFreeMethod	adlist.h	65;"	d
+listSetMatchMethod	adlist.h	66;"	d
+liveclients	mc-benchmark.c	/^    int liveclients;$/;"	m	struct:config	file:
+lookupCommand	redis.c	/^struct redisCommand *lookupCommand(char *name) {$/;"	f
+loop	mc-benchmark.c	/^    int loop;$/;"	m	struct:config	file:
+main	mc-benchmark.c	/^int main(int argc, char **argv) {$/;"	f
+main	redis.c	/^int main(int argc, char **argv) {$/;"	f
+mask	ae.h	/^    int mask; \/* one of AE_(READABLE|WRITABLE) *\/$/;"	m	struct:aeFileEvent
+mask	ae.h	/^    int mask;$/;"	m	struct:aeFiredEvent
+match	adlist.h	/^    int (*match)(void *ptr, void *key);$/;"	m	struct:list
+maxfd	ae.h	/^    int maxfd;$/;"	m	struct:aeEventLoop
+mbulk	mc-benchmark.c	/^    int mbulk;          \/* Number of elements in an mbulk reply *\/$/;"	m	struct:_client	file:
+monitorCommand	redis.c	/^void monitorCommand(redisClient *c) {$/;"	f
+mstime	mc-benchmark.c	/^static long long mstime(void) {$/;"	f	file:
+next	adlist.h	/^    listNode *next;$/;"	m	struct:listIter
+next	adlist.h	/^    struct listNode *next;$/;"	m	struct:listNode	typeref:struct:listNode::listNode
+next	ae.h	/^    struct aeTimeEvent *next;$/;"	m	struct:aeTimeEvent	typeref:struct:aeTimeEvent::aeTimeEvent
+numclients	mc-benchmark.c	/^    int numclients;$/;"	m	struct:config	file:
+obuf	mc-benchmark.c	/^    sds obuf;$/;"	m	struct:_client	file:
+oom	redis.c	/^void oom(const char *msg) {$/;"	f
+parseOptions	mc-benchmark.c	/^void parseOptions(int argc, char **argv) {$/;"	f
+pingCommand	redis.c	/^void pingCommand(redisClient *c) {$/;"	f
+prepareClientForReply	mc-benchmark.c	/^static void prepareClientForReply(client c, int type) {$/;"	f	file:
+prepareForBenchmark	mc-benchmark.c	/^static void prepareForBenchmark(char *title) {$/;"	f	file:
+prepareForShutdown	redis.c	/^int prepareForShutdown() {$/;"	f
+prev	adlist.h	/^    struct listNode *prev;$/;"	m	struct:listNode	typeref:struct:listNode::listNode
+processCommand	redis.c	/^int processCommand(redisClient *c) {$/;"	f
+processTimeEvents	ae.c	/^static int processTimeEvents(aeEventLoop *eventLoop) {$/;"	f	file:
+qsortRedisCommands	redis.c	/^int qsortRedisCommands(const void *r1, const void *r2) {$/;"	f
+quiet	mc-benchmark.c	/^    int quiet;$/;"	m	struct:config	file:
+randomizeClientKey	mc-benchmark.c	/^static void randomizeClientKey(client c) {$/;"	f	file:
+randomkeys	mc-benchmark.c	/^    int randomkeys;$/;"	m	struct:config	file:
+randomkeys_keyspacelen	mc-benchmark.c	/^    int randomkeys_keyspacelen;$/;"	m	struct:config	file:
+readHandler	mc-benchmark.c	/^static void readHandler(aeEventLoop *el, int fd, void *privdata, int mask)$/;"	f	file:
+readLen	mc-benchmark.c	/^static int readLen(char *p, int *len) {$/;"	f	file:
+readlen	mc-benchmark.c	/^    int readlen;        \/* readlen == -1 means read a single line *\/$/;"	m	struct:_client	file:
+readonlyCommandTable	redis.c	/^struct redisCommand readonlyCommandTable[] = {$/;"	v	typeref:struct:redisCommand
+redisLog	redis.c	/^void redisLog(int level, const char *fmt, ...) {$/;"	f
+redis_fstat	config.h	17;"	d
+redis_fstat	config.h	20;"	d
+redis_malloc_size	config.h	12;"	d
+redis_stat	config.h	18;"	d
+redis_stat	config.h	21;"	d
+replytype	mc-benchmark.c	/^    int replytype;$/;"	m	struct:_client	file:
+requests	mc-benchmark.c	/^    int requests;$/;"	m	struct:config	file:
+resetClient	mc-benchmark.c	/^static void resetClient(client c) {$/;"	f	file:
+rfds	ae_select.c	/^    fd_set rfds, wfds;$/;"	m	struct:aeApiState	file:
+rfileProc	ae.h	/^    aeFileProc *rfileProc;$/;"	m	struct:aeFileEvent
+sds	sds.h	/^typedef char *sds;$/;"	t
+sdsMakeRoomFor	sds.c	/^static sds sdsMakeRoomFor(sds s, size_t addlen) {$/;"	f	file:
+sdsOomAbort	sds.c	/^static void sdsOomAbort(void) {$/;"	f	file:
+sdsavail	sds.c	/^size_t sdsavail(sds s) {$/;"	f
+sdscat	sds.c	/^sds sdscat(sds s, char *t) {$/;"	f
+sdscatlen	sds.c	/^sds sdscatlen(sds s, void *t, size_t len) {$/;"	f
+sdscatprintf	sds.c	/^sds sdscatprintf(sds s, const char *fmt, ...) {$/;"	f
+sdscatrepr	sds.c	/^sds sdscatrepr(sds s, char *p, size_t len) {$/;"	f
+sdscatvprintf	sds.c	/^sds sdscatvprintf(sds s, const char *fmt, va_list ap) {$/;"	f
+sdscmp	sds.c	/^int sdscmp(sds s1, sds s2) {$/;"	f
+sdscpy	sds.c	/^sds sdscpy(sds s, char *t) {$/;"	f
+sdscpylen	sds.c	/^sds sdscpylen(sds s, char *t, size_t len) {$/;"	f
+sdsdup	sds.c	/^sds sdsdup(const sds s) {$/;"	f
+sdsempty	sds.c	/^sds sdsempty(void) {$/;"	f
+sdsfree	sds.c	/^void sdsfree(sds s) {$/;"	f
+sdsfreesplitres	sds.c	/^void sdsfreesplitres(sds *tokens, int count) {$/;"	f
+sdsfromlonglong	sds.c	/^sds sdsfromlonglong(long long value) {$/;"	f
+sdshdr	sds.h	/^struct sdshdr {$/;"	s
+sdslen	sds.c	/^size_t sdslen(const sds s) {$/;"	f
+sdsnew	sds.c	/^sds sdsnew(const char *init) {$/;"	f
+sdsnewlen	sds.c	/^sds sdsnewlen(const void *init, size_t initlen) {$/;"	f
+sdsrange	sds.c	/^sds sdsrange(sds s, int start, int end) {$/;"	f
+sdssplitargs	sds.c	/^sds *sdssplitargs(char *line, int *argc) {$/;"	f
+sdssplitlen	sds.c	/^sds *sdssplitlen(char *s, int len, char *sep, int seplen, int *count) {$/;"	f
+sdstolower	sds.c	/^void sdstolower(sds s) {$/;"	f
+sdstoupper	sds.c	/^void sdstoupper(sds s) {$/;"	f
+sdstrim	sds.c	/^sds sdstrim(sds s, const char *cset) {$/;"	f
+sdsupdatelen	sds.c	/^void sdsupdatelen(sds s) {$/;"	f
+segvHandler	redis.c	/^void segvHandler(int sig, siginfo_t *info, void *secret) {$/;"	f
+server	redis.c	/^struct redisServer server; \/* server global state *\/$/;"	v	typeref:struct:redisServer
+serverCron	redis.c	/^int serverCron(struct aeEventLoop *eventLoop, long long id, void *clientData) {$/;"	f
+setDictType	redis.c	/^dictType setDictType = {$/;"	v
+setupSigSegvAction	redis.c	/^void setupSigSegvAction(void) {$/;"	f
+shared	redis.c	/^struct sharedObjectsStruct shared;$/;"	v	typeref:struct:sharedObjectsStruct
+showLatencyReport	mc-benchmark.c	/^static void showLatencyReport(void) {$/;"	f	file:
+showThroughput	mc-benchmark.c	/^int showThroughput(struct aeEventLoop *eventLoop, long long id, void *clientData) {$/;"	f
+sigtermHandler	redis.c	/^void sigtermHandler(int sig) {$/;"	f
+sortCommandTable	redis.c	/^void sortCommandTable() {$/;"	f
+start	mc-benchmark.c	/^    long long start;    \/* start time in milliseconds *\/$/;"	m	struct:_client	file:
+start	mc-benchmark.c	/^    long long start;$/;"	m	struct:config	file:
+state	mc-benchmark.c	/^    int state;$/;"	m	struct:_client	file:
+stop	ae.h	/^    int stop;$/;"	m	struct:aeEventLoop
+tail	adlist.h	/^    listNode *tail;$/;"	m	struct:list
+timeEventHead	ae.h	/^    aeTimeEvent *timeEventHead;$/;"	m	struct:aeEventLoop
+timeEventNextId	ae.h	/^    long long timeEventNextId;$/;"	m	struct:aeEventLoop
+timeProc	ae.h	/^    aeTimeProc *timeProc;$/;"	m	struct:aeTimeEvent
+title	mc-benchmark.c	/^    char *title;$/;"	m	struct:config	file:
+totlatency	mc-benchmark.c	/^    long long totlatency;$/;"	m	struct:config	file:
+totreceived	mc-benchmark.c	/^    int totreceived;$/;"	m	struct:_client	file:
+tryFreeOneObjectFromFreelist	redis.c	/^int tryFreeOneObjectFromFreelist(void) {$/;"	f
+tryResizeHashTables	redis.c	/^void tryResizeHashTables(void) {$/;"	f
+uname_S	Makefile	/^uname_S := $(shell sh -c 'uname -s 2>\/dev\/null || echo not')$/;"	m
+updateDictResizePolicy	redis.c	/^void updateDictResizePolicy(void) {$/;"	f
+usage	redis.c	/^void usage() {$/;"	f
+used_memory	zmalloc.c	/^static size_t used_memory = 0;$/;"	v	file:
+used_memory_mutex	zmalloc.c	/^pthread_mutex_t used_memory_mutex = PTHREAD_MUTEX_INITIALIZER;$/;"	v
+value	adlist.h	/^    void *value;$/;"	m	struct:listNode
+version	redis.c	/^void version() {$/;"	f
+wfds	ae_select.c	/^    fd_set rfds, wfds;$/;"	m	struct:aeApiState	file:
+wfileProc	ae.h	/^    aeFileProc *wfileProc;$/;"	m	struct:aeFileEvent
+when_ms	ae.h	/^    long when_ms; \/* milliseconds *\/$/;"	m	struct:aeTimeEvent
+when_sec	ae.h	/^    long when_sec; \/* seconds *\/$/;"	m	struct:aeTimeEvent
+writeHandler	mc-benchmark.c	/^static void writeHandler(aeEventLoop *el, int fd, void *privdata, int mask)$/;"	f	file:
+written	mc-benchmark.c	/^    unsigned int written;        \/* bytes of 'obuf' already written *\/$/;"	m	struct:_client	file:
+zcalloc	zmalloc.c	/^void *zcalloc(size_t size) {$/;"	f
+zfree	zmalloc.c	/^void zfree(void *ptr) {$/;"	f
+zmalloc	zmalloc.c	/^void *zmalloc(size_t size) {$/;"	f
+zmalloc_enable_thread_safeness	zmalloc.c	/^void zmalloc_enable_thread_safeness(void) {$/;"	f
+zmalloc_get_fragmentation_ratio	zmalloc.c	/^float zmalloc_get_fragmentation_ratio(void) {$/;"	f
+zmalloc_oom	zmalloc.c	/^static void zmalloc_oom(size_t size) {$/;"	f	file:
+zmalloc_thread_safe	zmalloc.c	/^static int zmalloc_thread_safe = 0;$/;"	v	file:
+zmalloc_used_memory	zmalloc.c	/^size_t zmalloc_used_memory(void) {$/;"	f
+zrealloc	zmalloc.c	/^void *zrealloc(void *ptr, size_t size) {$/;"	f
+zsetDictType	redis.c	/^dictType zsetDictType = {$/;"	v
+zstrdup	zmalloc.c	/^char *zstrdup(const char *s) {$/;"	f
