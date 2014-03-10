@@ -1,4 +1,6 @@
 #!/bin/bash
 
+BIN=$1
+
 killall -9 memcached
-./memcached -d -m 1024 -c 10000
+${BIN} -d -m 1024 -c 10000
