@@ -1,4 +1,4 @@
-/* Redis benchmark utility.
+/* memcached benchmark utility.
  *
  * Copyright (c) 2009-2010, Salvatore Sanfilippo <antirez at gmail dot com>
  * All rights reserved.
@@ -78,6 +78,7 @@ static struct config {
     int quiet;
     int loop;
     int idlemode;
+    char *tests;
 } config;
 
 typedef struct _client {
@@ -106,6 +107,22 @@ static long long mstime(void) {
     mst = ((long)tv.tv_sec)*1000;
     mst += tv.tv_usec/1000;
     return mst;
+}
+
+
+/* Return true if the named test was selected using the -t command line
+ * switch, or if all the tests are selected (no -t passed by user). */
+int test_is_selected(char *name) 
+{
+	char buf[256];
+	int l = strlen(name);
+	
+	if (config.tests == NULL) return 1;
+	buf[0] = ',';
+	memcpy(buf+1,name,l);
+	buf[l+1] = ',';
+	buf[l+2] = '\0';
+	return strstr(config.tests,buf) != NULL;
 }
 
 static void freeClient(client c) {
@@ -424,7 +441,17 @@ void parseOptions(int argc, char **argv) {
             if (config.randomkeys_keyspacelen < 0)
                 config.randomkeys_keyspacelen = 0;
             i++;
-        } else if (!strcmp(argv[i],"-q")) {
+        } 
+
+        else if (!strcmp(argv[i],"-t") && !lastarg) 
+	{
+		config.tests = sdsnew(",");
+		config.tests = sdscat(config.tests,(char*)argv[++i]);
+		config.tests = sdscat(config.tests,",");
+		sdstolower(config.tests);
+		printf("[config.tests]:%s\n",config.tests);
+	}
+	else if (!strcmp(argv[i],"-q")) {
             config.quiet = 1;
         } else if (!strcmp(argv[i],"-l")) {
             config.loop = 1;
@@ -515,31 +542,37 @@ int main(int argc, char **argv) {
     }
 
     do {
-        prepareForBenchmark("SET");
-        c = createClient();
-        if (!c) exit(1);
-        c->obuf = sdscatprintf(c->obuf,"set foo_rand000000000000 0 0 %d\r\n",config.datasize);
-        {
-            char *data = zmalloc(config.datasize+2);
-            memset(data,'x',config.datasize);
-            data[config.datasize] = '\r';
-            data[config.datasize+1] = '\n';
-            c->obuf = sdscatlen(c->obuf,data,config.datasize+2);
-        }
-        prepareClientForReply(c,REPLY_RETCODE);
-        createMissingClients(c);
-        aeMain(config.el);
-        endBenchmark();
+	if (test_is_selected("set")) 
+	{
+        	prepareForBenchmark("SET");
+        	c = createClient();
+        	if (!c) exit(1);
+        	c->obuf = sdscatprintf(c->obuf,"set foo_rand000000000000 0 0 %d\r\n",config.datasize);
+        	{
+        	    char *data = zmalloc(config.datasize+2);
+        	    memset(data,'x',config.datasize);
+        	    data[config.datasize] = '\r';
+        	    data[config.datasize+1] = '\n';
+        	    c->obuf = sdscatlen(c->obuf,data,config.datasize+2);
+        	}
+        	prepareClientForReply(c,REPLY_RETCODE);
+        	createMissingClients(c);
+        	aeMain(config.el);
+        	endBenchmark();
+	}
 
-        prepareForBenchmark("GET");
-        c = createClient();
-        if (!c) exit(1);
-        c->obuf = sdscat(c->obuf,"get foo_rand000000000000\r\n");
-        prepareClientForReply(c,REPLY_BULK);
-        createMissingClients(c);
-        aeMain(config.el);
-        endBenchmark();
 
+	if (test_is_selected("get"))
+	{
+        	prepareForBenchmark("GET");
+        	c = createClient();
+        	if (!c) exit(1);
+        	c->obuf = sdscat(c->obuf,"get foo_rand000000000000\r\n");
+        	prepareClientForReply(c,REPLY_BULK);
+        	createMissingClients(c);
+        	aeMain(config.el);
+        	endBenchmark();
+	}
         printf("\n");
     } while(config.loop);
 
