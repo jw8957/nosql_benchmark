@@ -22,7 +22,7 @@ op=$1
 
 set -x
 
-rm -rf "./result_mc_${op}"
+rm -rf "./result_${op}_mc"
 while [ $i -le ${max_clients} ]
 do
 	i=`expr $i + 5`
@@ -34,5 +34,5 @@ do
 		S=`$BIN -n $iterations -d $payload -c $i -t $op | grep 'per second'`
 		SPEED=`echo ${S} | awk '{a=$1;if(a>'${SPEED}') print a;else print '${SPEED}'}'`
 	done
-	echo "$i $SPEED" >> "./result_mc_${op}"
+	echo "$i $SPEED" >> "./result_${op}_mc"
 done
