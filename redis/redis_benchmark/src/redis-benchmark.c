@@ -63,11 +63,11 @@ static struct config {
     int datasize;
     int randomkeys;
     int randomkeys_keyspacelen;
-    int keepalive;
-    int pipeline;
+    int keepalive;	//?
+    int pipeline;	//?
     long long start;
     long long totlatency;
-    long long *latency;
+    long long *latency;	//latency 延迟
     const char *title;
     list *clients;
     int quiet;
@@ -154,6 +154,7 @@ static void resetClient(client c) {
 static void randomizeClientKey(client c) {
     size_t i;
 
+    printf("DEBUG jw [c->randlen]:%zu\n",c->randlen);
     for (i = 0; i < c->randlen; i++) {
         char *p = c->randptr[i]+11;
         size_t r = random() % config.randomkeys_keyspacelen;
@@ -164,6 +165,7 @@ static void randomizeClientKey(client c) {
             r/=10;
             p--;
         }
+	printf("DEBUG jw [c->randptr[%zu]]:%s\n",i,p);
     }
 }
 
@@ -271,6 +273,8 @@ static void writeHandler(aeEventLoop *el, int fd, void *privdata, int mask) {
             return;
         }
         c->written += nwritten;
+
+	//全部发送到server
         if (sdslen(c->obuf) == c->written) {
             aeDeleteFileEvent(config.el,c->context->fd,AE_WRITABLE);
             aeCreateFileEvent(config.el,c->context->fd,AE_READABLE,readHandler,c);
@@ -305,7 +309,7 @@ static client createClient(char *cmd, size_t len, client from) {
     client c = zmalloc(sizeof(struct _client));
 
     if (config.hostsocket == NULL) {
-        c->context = redisConnectNonBlock(config.hostip,config.hostport);
+        c->context = redisConnectNonBlock(config.hostip,config.hostport);	//tcp 连接
     } else {
         c->context = redisConnectUnixNonBlock(config.hostsocket);
     }
@@ -345,6 +349,10 @@ static client createClient(char *cmd, size_t len, client from) {
     } else {
         for (j = 0; j < config.pipeline; j++)
             c->obuf = sdscatlen(c->obuf,cmd,len);
+	
+
+	printf("DEBUG:jw [pipeline] %d\n",config.pipeline);
+	printf("DEBUG:jw [c->obuf] %s\n",c->obuf);
     }
     c->written = 0;
     c->pending = config.pipeline;
@@ -369,7 +377,8 @@ static client createClient(char *cmd, size_t len, client from) {
 
             c->randlen = 0;
             c->randfree = RANDPTR_INITIAL_SIZE;
-            c->randptr = zmalloc(sizeof(char*)*c->randfree);
+		//#define RANDPTR_INITIAL_SIZE 8
+            c->randptr = zmalloc(sizeof(char*)*c->randfree);		/* Pointers to :rand: strings inside the command buf */
             while ((p = strstr(p,"__rand_int__")) != NULL) {
                 if (c->randfree == 0) {
                     c->randptr = zrealloc(c->randptr,sizeof(char*)*c->randlen*2);
@@ -379,10 +388,11 @@ static client createClient(char *cmd, size_t len, client from) {
                 c->randfree--;
                 p += 12; /* 12 is strlen("__rand_int__). */
             }
+	    printf("DUBUG: jw [*c->randptr]:%s\n",*(c->randptr));
         }
     }
     aeCreateFileEvent(config.el,c->context->fd,AE_WRITABLE,writeHandler,c);
-    listAddNodeTail(config.clients,c);
+    listAddNodeTail(config.clients,c);		//config::list *clients;
     config.liveclients++;
     return c;
 }
@@ -463,17 +473,19 @@ static void benchmark(char *title, char *cmd, int len) {
 }
 
 /* Returns number of consumed options. */
+/* TODO:改成 getopt() */
 int parseOptions(int argc, const char **argv) {
     int i;
     int lastarg;
     int exit_status = 1;
-
+	
+    //argc : 连同redis-benchmark 的数量
     for (i = 1; i < argc; i++) {
-        lastarg = (i == (argc-1));
+        lastarg = (i == (argc-1));	//是否最后一个参数
 
         if (!strcmp(argv[i],"-c")) {
             if (lastarg) goto invalid;
-            config.numclients = atoi(argv[++i]);
+            config.numclients = atoi(argv[++i]);	//i自动加1
         } else if (!strcmp(argv[i],"-n")) {
             if (lastarg) goto invalid;
             config.requests = atoi(argv[++i]);
@@ -504,7 +516,10 @@ int parseOptions(int argc, const char **argv) {
             config.randomkeys_keyspacelen = atoi(argv[++i]);
             if (config.randomkeys_keyspacelen < 0)
                 config.randomkeys_keyspacelen = 0;
-        } else if (!strcmp(argv[i],"-q")) {
+        }
+
+	/*对于不需要带参数的option*/
+	else if (!strcmp(argv[i],"-q")) {
             config.quiet = 1;
         } else if (!strcmp(argv[i],"--csv")) {
             config.csv = 1;
@@ -512,7 +527,9 @@ int parseOptions(int argc, const char **argv) {
             config.loop = 1;
         } else if (!strcmp(argv[i],"-I")) {
             config.idlemode = 1;
-        } else if (!strcmp(argv[i],"-t")) {
+        } 
+	
+	else if (!strcmp(argv[i],"-t")) {
             if (lastarg) goto invalid;
             /* We get the list of tests to run as a string in the form
              * get,set,lrange,...,test_N. Then we add a comma before and
@@ -532,7 +549,7 @@ int parseOptions(int argc, const char **argv) {
             goto usage;
         } else {
             /* Assume the user meant to provide an option when the arg starts
-             * with a dash. We're done otherwise and should use the remainder
+             * with a dash(破折号). We're done otherwise and should use the remainder
              * as the command and arguments for running the benchmark. */
             if (argv[i][0] == '-') goto invalid;
             return i;
@@ -622,7 +639,7 @@ int main(int argc, const char **argv) {
     client c;
 
     srandom(time(NULL));
-    signal(SIGHUP, SIG_IGN);
+    signal(SIGHUP, SIG_IGN);		//singal? 
     signal(SIGPIPE, SIG_IGN);
 
     config.numclients = 50;
@@ -651,12 +668,14 @@ int main(int argc, const char **argv) {
     argc -= i;
     argv += i;
 
-    config.latency = zmalloc(sizeof(long long)*config.requests);
+    config.latency = zmalloc(sizeof(long long)*config.requests);	//long long *latency;
 
     if (config.keepalive == 0) {
         printf("WARNING: keepalive disabled, you probably need 'echo 1 > /proc/sys/net/ipv4/tcp_tw_reuse' for Linux and 'sudo sysctl -w net.inet.tcp.msl=1000' for Mac OS X in order to use a lot of clients/requests\n");
     }
 
+
+    /*idle 空载的?*/
     if (config.idlemode) {
         printf("Creating %d idle connections and waiting forever (Ctrl+C when done)\n", config.numclients);
         c = createClient("",0,NULL); /* will never receive a reply */
@@ -664,6 +683,9 @@ int main(int argc, const char **argv) {
         aeMain(config.el);
         /* and will wait for every */
     }
+	
+    
+    //typedef char *sds;
 
     /* Run benchmark with command in the remainder of the arguments. */
     if (argc) {
@@ -698,7 +720,10 @@ int main(int argc, const char **argv) {
         }
 
         if (test_is_selected("set")) {
-            len = redisFormatCommand(&cmd,"SET key:__rand_int__ %s",data);
+	    printf("DEBUG:jw data:%s\n",data);
+            //len = redisFormatCommand(&cmd,"SET key:__rand_int__ %s",data);
+            len = redisFormatCommand(&cmd,"SET 季威 %s",data);
+	    printf("DEBUG:jw [cmd]:\n%s\n",cmd);
             benchmark("SET",cmd,len);
             free(cmd);
         }
