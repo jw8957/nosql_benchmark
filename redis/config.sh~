@@ -1,0 +1,7 @@
+#!/bin/bash
+
+BIN=redis-benchmark
+payload=32
+iterations=100000
+keyspace=100000
+max_clients=1000

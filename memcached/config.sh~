@@ -1,0 +1,7 @@
+#!/bin/bash
+
+BIN=/home/video/jiwei03/nosql_benchmark/nosql_benchmark/memcached/mc_benchmark/mc-benchmark
+payload=1
+iterations=100000
+keyspace=100000
+max_clients=1000

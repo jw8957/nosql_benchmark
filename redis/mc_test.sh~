@@ -1,0 +1,37 @@
+#!/bin/bash
+
+#if [ $# -lt 1 ];then
+#	echo "Usage: ./mc_test.sh"
+#	exit 1
+#fi
+
+
+# BIN=redis-benchmark
+BIN=/home/video/jiwei03/nosql_benchmark/nosql_benchmark/memcached/mc_benchmark/mc-benchmark
+payload=32
+iterations=100000
+keyspace=100000
+
+max_clients=300
+#max_clients=10
+i=0
+#op=$1
+
+set -x
+
+rm -rf "./result_set"
+rm -rf "./result_get"
+while [ $i -le ${max_clients} ]
+do
+	i=`expr $i + 5`
+	SPEED_S=0
+	SPEED_G=0
+	for dummy in 0 1 2
+	do
+		S=`$BIN -n $iterations -r $keyspace -d $payload -c $i -t set,get | grep 'per second'`
+		SPEED_S=`echo ${S} | awk '{a=$1;if(a>'${SPEED_S}') print a;else print '${SPEED_S}'}'`
+		SPEED_G=`echo ${S} | awk '{a=$5;if(a>'${SPEED_G}') print a;else print '${SPEED_G}'}'`
+	done
+	echo "$i $SPEED_S" >> "./result_set"
+	echo "$i $SPEED_G" >> "./result_get"
+done

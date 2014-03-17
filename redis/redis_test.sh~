@@ -13,7 +13,7 @@ source config.sh
 
 
 if [ $# -lt 1 ];then
-	echo "Usage: ./mc_test.sh"
+	echo "Usage: ./redis_test.sh operation"
 	exit 1
 fi
 
@@ -22,7 +22,7 @@ op=$1
 
 set -x
 
-rm -rf "./result_mc_${op}"
+rm -rf "./result_redis_${op}"
 while [ $i -le ${max_clients} ]
 do
 	i=`expr $i + 5`
